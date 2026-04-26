@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="grid grid-cols-12 gap-4 p-4 h-[85vh]">
+
+    <!-- LEFT TOOLBAR -->
+    <div class="col-span-4 bg-white rounded-xl shadow p-4 overflow-y-auto">
+
+        <h2 class="text-xl font-bold mb-4">Template Designer</h2>
+
+        <!-- BASIC INFO -->
+        <div class="space-y-3">
+
+            <input id="templateName"
+                   placeholder="Template Name"
+                   class="w-full border rounded p-2">
+
+            <select id="templateType" class="w-full border rounded p-2">
+                <option value="lyrics">Lyrics</option>
+                <option value="scripture">Scripture</option>
+            </select>
+
+        </div>
+
+        <!-- BACKGROUND -->
+        <div class="mt-6">
+            <h3 class="font-semibold mb-2">Background</h3>
+
+            <select id="bgMode" class="w-full border rounded p-2 mb-2">
+                <option value="image">Image</option>
+                <option value="solid">Solid Color</option>
+                <option value="gradient">Gradient</option>
+            </select>
+
+            <input type="file" id="bgImage" class="w-full mb-2">
+
+            <input type="color" id="solidColor" value="#000000"
+                   class="w-full h-10 mb-2">
+
+            <div class="grid grid-cols-2 gap-2">
+                <input type="color" id="gradient1" value="#000000" class="h-10">
+                <input type="color" id="gradient2" value="#1e40af" class="h-10">
+            </div>
+        </div>
+
+        <!-- TEXTBOX CONTROLS -->
+        <div class="mt-6">
+            <h3 class="font-semibold mb-2">Text Boxes</h3>
+
+            <div class="flex gap-2 mb-3">
+                <button onclick="addTextbox()"
+                        class="bg-blue-600 text-white px-3 py-2 rounded w-full">
+                    + Add Text Box
+                </button>
+            </div>
+
+            <div id="textboxList" class="space-y-3"></div>
+        </div>
+
+        <!-- SAVE -->
+        <button onclick="saveTemplate()"
+                class="mt-6 w-full bg-green-600 text-white py-3 rounded-lg font-semibold">
+            Save Template
+        </button>
+
+    </div>
+
+    <!-- CANVAS -->
+    <div class="col-span-8 bg-[#111827] rounded-xl shadow flex items-center justify-center">
+
+        <div class="w-full aspect-video max-w-full p-4">
+            <canvas id="editorCanvas"
+                    width="1280"
+                    height="720"
+                    class="w-full h-auto bg-black rounded"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/js/slide_template_editor.js"></script>
+
+{% endblock %}

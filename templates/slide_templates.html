@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="p-6">
+
+    <!-- HEADER -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+
+        <div>
+            <h1 class="text-3xl font-bold">Slide Templates</h1>
+            <p class="text-gray-500">Manage your Scripture and Lyrics templates</p>
+        </div>
+
+        <div class="flex gap-3">
+
+            <a href="/slide-template-editor"
+               class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg shadow font-medium">
+                + Create Template
+            </a>
+
+            <a href="/slide-batch"
+               class="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-lg shadow font-medium">
+                Create Slides
+            </a>
+
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="mb-6">
+        <input id="templateSearch"
+               placeholder="Search templates..."
+               class="w-full border rounded-lg px-4 py-3 shadow-sm"
+               oninput="filterTemplates()">
+    </div>
+
+    <!-- GRID -->
+    <div id="templateGrid"
+         class="grid md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+
+</div>
+
+<script src="/static/js/slide_templates.js"></script>
+
+{% endblock %}

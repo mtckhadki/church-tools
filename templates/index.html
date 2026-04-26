@@ -15,22 +15,54 @@
 <!-- CARDS -->
 <div id="cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <div class="card" data-name="xml show converter">
+    <!-- XML → SHOW -->
+    <div class="card" data-name="xml show converter openlp freeshow lyrics">
+        <div class="icon bg-blue-100 text-blue-600">
+            <i data-lucide="file-up"></i>
+        </div>
         <h2>XML → SHOW</h2>
-        <p>Convert OpenLP XML to Freeshow</p>
-        <a href="/xml-show">Open</a>
+        <p>Convert OpenLP lyrics into Freeshow format</p>
+        <a href="/xml-show">Open Tool →</a>
     </div>
 
-    <div class="card" data-name="show xml converter">
+    <!-- SHOW → XML -->
+    <div class="card" data-name="show xml converter freeshow openlp">
+        <div class="icon bg-green-100 text-green-600">
+            <i data-lucide="file-down"></i>
+        </div>
         <h2>SHOW → XML</h2>
-        <p>Convert Freeshow to OpenLP XML</p>
-        <a href="/show-xml">Open</a>
+        <p>Convert Freeshow files back to OpenLP</p>
+        <a href="/show-xml">Open Tool →</a>
     </div>
 
-    <div class="card" data-name="announcement creator">
+    <!-- ANNOUNCEMENTS -->
+    <div class="card" data-name="announcement creator slides church">
+        <div class="icon bg-purple-100 text-purple-600">
+            <i data-lucide="megaphone"></i>
+        </div>
         <h2>Announcements</h2>
-        <p>Create formatted announcement slides</p>
-        <a href="/announcement-ui">Open</a>
+        <p>Create rich formatted announcement slides</p>
+        <a href="/announcement-ui">Open Tool →</a>
+    </div>
+
+    <!-- QR TOOL -->
+    <div class="card" data-name="qr code generator church wifi link">
+        <div class="icon bg-yellow-100 text-yellow-600">
+            <i data-lucide="qr-code"></i>
+        </div>
+        <h2>QR Generator</h2>
+        <p>Create styled QR codes with logos</p>
+        <a href="/qr-tool">Open Tool →</a>
+    </div>
+
+    <!-- SLIDE CREATOR -->
+    <div class="card" data-name="slide creator scripture lyrics image title">
+        <div class="icon bg-red-100 text-red-600">
+            <i data-lucide="image"></i>
+        </div>
+        <h2>Slide Creator</h2>
+        <p>Design scripture & lyric title slides</p>
+        <a href="/slide-templates">Open Tool →</a>
     </div>
 
 </div>
@@ -39,30 +71,42 @@
 .card {
     background: white;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: all 0.25s ease;
+    position: relative;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
 .card h2 {
     font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-weight: 600;
+    margin-top: 10px;
 }
 
 .card p {
     color: #555;
-    margin-bottom: 12px;
+    margin: 8px 0 12px;
+    font-size: 14px;
 }
 
 .card a {
     color: #2563eb;
     font-weight: 500;
+    font-size: 14px;
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }
 </style>
 
@@ -72,8 +116,8 @@ function filterCards() {
     let cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
-        let name = card.dataset.name;
-        card.style.display = name.includes(input) ? "block" : "none";
+        let text = card.dataset.name + card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "block" : "none";
     });
 }
 </script>

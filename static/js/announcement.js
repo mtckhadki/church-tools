@@ -102,3 +102,24 @@ function generateXML() {
         `;
     });
 }
+
+function renderPreview() {
+    let preview = document.getElementById("preview");
+    preview.innerHTML = "";
+
+    sections.forEach((s, i) => {
+        if (!s) return;
+
+        let html = `
+            <div class="mb-6 p-4 bg-gray-800 rounded">
+                <div class="text-2xl font-bold">${s.heading}</div>
+                <div class="mt-2">${editors[i].root.innerHTML}</div>
+            </div>
+        `;
+
+        preview.innerHTML += html;
+    });
+}
+
+// Update preview on change
+setInterval(renderPreview, 1000);

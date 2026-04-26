@@ -2,6 +2,22 @@ import xml.etree.ElementTree as ET
 import json
 import os
 
+# ===== THEME MAPPING =====
+def apply_theme(text):
+    return {
+        "text": text,
+        "style": {
+            "fontSize": 48,
+            "color": "#FFFFFF",
+            "align": "center",
+            "lineHeight": 1.2
+        },
+        "background": {
+            "type": "solid",
+            "color": "#000000"
+        }
+    }
+
 def convert_xml_to_show(xml_path, output_folder):
     tree = ET.parse(xml_path)
     root = tree.getroot()
@@ -21,7 +37,7 @@ def convert_xml_to_show(xml_path, output_folder):
             "title": title,
             "artist": ""
         },
-        "slides": [{"text": v} for v in verses]
+        "slides": [apply_theme(v) for v in verses]
     }
 
     output_file = os.path.join(output_folder, title + ".show")
