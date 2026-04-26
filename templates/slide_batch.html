@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class='p-4'>
+  <select id='templateSelect'></select>
+  <button onclick='addSlideRow()'>Add Slide</button>
+  <div id='slidesContainer'></div>
+  <button onclick='generateSlides()'>Export ZIP</button>
+</div>
+<script src='/static/js/slide_batch.js'></script>
+{% endblock %}

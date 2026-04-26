@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="text-xl font-bold mb-4">SHOW → XML Converter</h2>
+
+<!-- DROP ZONE -->
+<div id="dropzone" 
+     class="border-2 border-dashed p-10 text-center rounded bg-white">
+    Drag & Drop SHOW files here or click to upload
+    <input type="file" id="fileInput" multiple hidden>
+</div>
+
+<!-- PROGRESS -->
+<div id="progressList" class="mt-4 space-y-2"></div>
+
+<script src="/static/js/upload.js"></script>
+
+<button onclick="uploadFiles()" class="bg-green-600 text-white px-4 py-2 rounded">
+    Convert
+</button>
+
+<div id="result" class="mt-4"></div>
+
+<script src="/static/js/show_to_xml.js"></script>
+
+{% endblock %}
